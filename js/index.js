@@ -149,7 +149,6 @@ window.addEventListener('load', async function(){
   contractInstance = await client.getContractInstance(contractSource,{contractAddress});
 
   let allCriminals = (await contractInstance.methods.getCriminals()).decodedResult;
-  this.console.log(`All crima=inals have a length os ${allCriminals}`,allCriminals);
   allCriminals.map(criminal => {
     selectDom(criminal[1].name, criminal[1].code)
     if (criminal[1]["offenses"].length > 0) {
